@@ -106,6 +106,19 @@ int main(int argc, char *argv[])
                                         fflush(stdout);
                                 }
 			}
+			
+	  //char  valueStr[35];
+	  
+          sprintf(valueStr,"%i",s->getTemperature());
+          ret = mosquitto_publish (mosq, NULL, &MQTT_TOPIC[0u], strlen (valueStr), valueStr, 0, false);
+          if (ret)
+          {
+            fprintf (stderr,"Can't publish to Mosquitto server\n");
+            exit (-1);
+          }else 
+          {
+            fprintf (stdout,"Received %s\n", valueStr );
+          }			
 			delete s;
 		}
 		delay(1000);
