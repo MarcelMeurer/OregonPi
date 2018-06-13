@@ -12,7 +12,10 @@ C code : test.cpp
 #include "Sensor.h"
 
 /* inlcude MQTT */
-#include <mosquitto.h>
+#include <
+
+
+uitto.h>
 
 int main(int argc, char *argv[])
 {
@@ -31,6 +34,7 @@ int main(int argc, char *argv[])
     char* usr  = MQTT_USERTNAME; 
     char* pswd = MQTT_PASSWORD; 
     char* topic= MQTT_TOPIC;
+    struct mosquitto *mosq = NULL;	
 	
     // Initialize the Mosquitto library
     mosquitto_lib_init();
