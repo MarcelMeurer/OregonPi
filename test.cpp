@@ -56,17 +56,7 @@ int main(int argc, char *argv[])
     }
 	
 	  char  valueStr[48];
-          sprintf(valueStr,"%i", 6666);
-          ret = mosquitto_publish (mosq, NULL, &MQTT_TOPIC[0u], strlen (valueStr), valueStr, 0, false);
-          if (ret)
-          {
-            fprintf (stderr,"Can't publish to Mosquitto server\n");
-            exit (-1);
-          }else 
-          {
-            fprintf (stdout,"Received %s\n", valueStr );
-          }
-	
+
 	
 	
         if(argc==2) {
@@ -109,7 +99,7 @@ int main(int argc, char *argv[])
 			
 	  //char  valueStr[35];
 	  
-          sprintf(valueStr,"OREGON: {\"channel\":%d,\"temp\":%f,\"humidity\":%f}",s->getChannel(),s->getTemperature(),s->getHumidity());
+          sprintf(valueStr,"{\"OREGON\": {\"channel\":%d,\"temp\":%f,\"humidity\":%f}}",s->getChannel(),s->getTemperature(),s->getHumidity());
           ret = mosquitto_publish (mosq, NULL, &MQTT_TOPIC[0u], strlen (valueStr), valueStr, 0, false);
           if (ret)
           {
@@ -117,7 +107,7 @@ int main(int argc, char *argv[])
             exit (-1);
           }else 
           {
-            fprintf (stdout,"Received %s\n", valueStr );
+            fprintf (stdout,"%s", valueStr );
           }			
 			delete s;
 		}
