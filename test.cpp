@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
 			
 	  //char  valueStr[35];
 	  
-          sprintf(valueStr,"{OREGON: {\"channel\":%d,\"temp\":%f,\"humidity\":%f}}",s->getChannel(),s->getTemperature(),s->getHumidity());
+          sprintf(valueStr,"OREGON:{\"channel\":%d,\"temp\":%f,\"humidity\":%f}}",s->getChannel(),s->getTemperature(),s->getHumidity());
           ret = mosquitto_publish (mosq, NULL, &MQTT_TOPIC[0u], strlen (valueStr), valueStr, 0, false);
           if (ret)
           {
