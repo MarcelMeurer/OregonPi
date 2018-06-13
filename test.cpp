@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 			
 	  //char  valueStr[35];
 	  
-          sprintf(valueStr,"%i",s->getTemperature());
+          sprintf(valueStr,"%d,temp%f,hum%f\n",s->getChannel(),s->getTemperature(),s->getHumidity());
           ret = mosquitto_publish (mosq, NULL, &MQTT_TOPIC[0u], strlen (valueStr), valueStr, 0, false);
           if (ret)
           {
