@@ -20,7 +20,7 @@ Hardware Config
 
 https://projects.drogon.net/raspberry-pi/wiringpi/pins/
 
-INPUT GPIO 1
+INPUT GPIO 2
 
 Install wiringPi
 ----------------
