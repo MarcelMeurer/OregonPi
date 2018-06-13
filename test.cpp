@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
       exit (-1);
     }
 	
-	  char  valueStr[35];
+	  char  valueStr[48];
           sprintf(valueStr,"%i", 6666);
           ret = mosquitto_publish (mosq, NULL, &MQTT_TOPIC[0u], strlen (valueStr), valueStr, 0, false);
           if (ret)
@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
 				printf("Humidity : %f\n",s->getHumidity());
 				printf("Channel : %d\n",s->getChannel());
                                 if((loggingok) && (s->getChannel()>0)) {
-                                        fprintf(fp,"%d,temp%f,hum%f\n",s->getChannel(),s->getTemperature(),s->getHumidity());
+                                        fprintf(fp,"OREGON: {\"channel\":%d,\"temp\":%f,\"humidity\":%f}",s->getChannel(),s->getTemperature(),s->getHumidity());
                                         fflush(fp);
                                         fflush(stdout);
                                 }
