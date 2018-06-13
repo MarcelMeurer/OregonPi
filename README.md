@@ -1,9 +1,15 @@
-OregonPi
-========
+OregonPi with MQTT
+==================
 
-433 Sensor Oregon Scientific decoder for Raspberry Pi
+433 Sensor Oregon Scientific decoder for Raspberry Pi sending mqtt to a local mqtt server (in my case for OpenHab / OpenHabian 2) to work with this data in a home automation. Works parallel to an RF sniffer to get radio signals from remote controls / door sensors AND oregon. 
+
+I'll improve the code style.
+
+Forked from https://github.com/1000io/OregonPi
 
 Code based on disk91 project http://www.disk91.com
+MQTT code based on https://github.com/Josar/RandomStuff/tree/master/Openhab-related
+
 
 Support OregonSensorV2
 ----------------------
