@@ -11,6 +11,9 @@ C code : test.cpp
 #include "RcOok.h"
 #include "Sensor.h"
 
+/* inlcude MQTT */
+#include <mosquitto.h>
+
 int main(int argc, char *argv[])
 {
 	int RXPIN = 2;
