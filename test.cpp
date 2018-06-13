@@ -55,6 +55,20 @@ int main(int argc, char *argv[])
       exit (-1);
     }
 	
+	  char  valueStr[35];
+          sprintf(valueStr,"%i", 6666);
+          ret = mosquitto_publish (mosq, NULL, &MQTT_TOPIC[0u], strlen (valueStr), valueStr, 0, false);
+          if (ret)
+          {
+            fprintf (stderr,"Can't publish to Mosquitto server\n");
+            exit (-1);
+          }else 
+          {
+            fprintf (stdout,"Received %s\n", valueStr );
+          }
+	
+	
+	
         if(argc==2) {
           fp = fopen(argv[1], "a"); // Log file opened in append mode to avoid destroying data
           loggingok=1;
