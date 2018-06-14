@@ -53,8 +53,6 @@ int main(int argc, char* argv[])
         exit(-1);
     }
 
-    char valueStr[48];
-
     if (argc == 2) {
         fp = fopen(argv[1], "a"); // Log file opened in append mode to avoid destroying data
         loggingok = 1;
@@ -91,7 +89,7 @@ int main(int argc, char* argv[])
                 }
             }
 
-            //char  valueStr[35];
+            char  valueStr[240];
 
             sprintf(valueStr, "OREGON#{\"device\":\"%s\",\"channel\":%d,\"temp\":%f,\"humidity\":%f}", message,s->getChannel(), s->getTemperature(), s->getHumidity());
             ret = mosquitto_publish(mosq, NULL, &MQTT_TOPIC[0u], strlen(valueStr), valueStr, 0, false);
@@ -100,8 +98,9 @@ int main(int argc, char* argv[])
                 exit(-1);
             }
             else {
-                fprintf(stdout, "MQTT: %s", valueStr);
+                fprintf(stdout, "MQTT: %s\n", valueStr);
             }
+            printf("\n");
             delete s;
         }
         delay(1000);
