@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
                 exit(-1);
             }
             else {
-                fprintf(stdout, "%s", valueStr);
+                //fprintf(stdout, "%s", valueStr);
             }
             delete s;
         }
