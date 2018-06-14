@@ -91,7 +91,7 @@ int main(int argc, char* argv[])
 
             char  valueStr[240];
 
-            sprintf(valueStr, "OREGON#{\"device\":\"%s\",\"channel\":%d,\"temp\":%f,\"humidity\":%f}", message,s->getChannel(), s->getTemperature(), s->getHumidity());
+            sprintf(valueStr, "OREGON#{\"message\":\"%s\",\"channel\":%d,\"temp\":%f,\"humidity\":%f}", message,s->getChannel(), s->getTemperature(), s->getHumidity());
             ret = mosquitto_publish(mosq, NULL, &MQTT_TOPIC[0u], strlen(valueStr), valueStr, 0, false);
             if (ret) {
                 fprintf(stderr, "Can't publish to Mosquitto server\n");
