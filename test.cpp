@@ -4,10 +4,10 @@ C code : test.cpp
 */
 
 
-#include < stdlib.h > 
-#include < string.h > 
-#include < stdio.h > 
-#include < time.h > 
+#include <stdlib.h> 
+#include <string.h> 
+#include <stdio.h> 
+#include <time.h> 
 #include "RCSwitch.h"
 #include "RcOok.h"
 #include "Sensor.h"
