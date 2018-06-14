@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
             char message[100];
 
             rc->getOokCode(message);
-            printf("XXX%s\n", message);
+            printf("%s\n", message);
 
             Sensor* s = Sensor::getRightSensor(message);
             if (s != NULL) {
@@ -93,14 +93,14 @@ int main(int argc, char* argv[])
 
             //char  valueStr[35];
 
-            sprintf(valueStr, "OREGON#{\"channel\":%d,\"temp\":%f,\"humidity\":%f}", s->getChannel(), s->getTemperature(), s->getHumidity());
+            sprintf(valueStr, "OREGON#{\"device\":\"%s\",\"channel\":%d,\"temp\":%f,\"humidity\":%f}", message,s->getChannel(), s->getTemperature(), s->getHumidity());
             ret = mosquitto_publish(mosq, NULL, &MQTT_TOPIC[0u], strlen(valueStr), valueStr, 0, false);
             if (ret) {
                 fprintf(stderr, "Can't publish to Mosquitto server\n");
                 exit(-1);
             }
             else {
-                //fprintf(stdout, "%s", valueStr);
+                fprintf(stdout, "MQTT: %s", valueStr);
             }
             delete s;
         }
