@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
             char message[100];
 
             rc->getOokCode(message);
-            printf("%s\n", message);
+            printf("XXX%s\n", message);
 
             Sensor* s = Sensor::getRightSensor(message);
             if (s != NULL) {
